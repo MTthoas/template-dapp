@@ -1,7 +1,9 @@
 "use client";
 import { ModeToggle } from "@/components/modeToggle";
+import { DynamicWidget, useIsLoggedIn } from "@dynamic-labs/sdk-react-core";
 
 export default function HomePage() {
+  const isLoggedIn = useIsLoggedIn();
   return (
     <div className="flex flex-col">
       <div className="w-screen z-1 whitespace-pre-wrap text-5xl font-medium tracking-tighter text-black dark:text-white flex gap-2">
@@ -12,7 +14,8 @@ export default function HomePage() {
           <span className="font-medium text-3xl">
             Foundry / NextJS / Express{" "}
           </span>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-4 gap-2">
+            <DynamicWidget />
             <ModeToggle />
           </div>
         </div>
