@@ -1,4 +1,5 @@
 "use client";
+import SendCard from "@/components/cards/send";
 import { ModeToggle } from "@/components/modeToggle";
 import { DynamicWidget, useIsLoggedIn } from "@dynamic-labs/sdk-react-core";
 
@@ -14,7 +15,7 @@ export default function HomePage() {
           <span className="font-medium text-3xl">
             Foundry / NextJS / Express{" "}
           </span>
-          <div className="flex justify-center mt-4 gap-2">
+          <div className="flex mt-4 gap-3 align-center justify-center">
             <DynamicWidget />
             <ModeToggle />
           </div>
@@ -23,7 +24,13 @@ export default function HomePage() {
           <div className="flex align-center justify-center">
             <span className="font-bold text-6xl">WAGMI</span>
           </div>
-          <span className="font-medium text-3xl">Web3 / Ethers / Hardhat</span>
+          <span className="font-medium text-3xl">
+            {" "}
+            Web3 Interaction on Ethereum
+          </span>
+          <div className="mx-auto w-2/5 my-8">
+            <SendCard />
+          </div>
         </div>
       </div>
       <div className="flex justify-center mt-8"></div>
