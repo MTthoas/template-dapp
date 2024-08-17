@@ -21,11 +21,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           {...props}
         />
-        {isParse && (
+        {isParse && props.value === "" && (
           <Button
             variant="secondary"
             size="s"
-            className="absolute py-3 right-1 top-1/2 transform -translate-y-1/2"
+            className="absolute py-3 right-1 top-1/2 transform -translate-y-1/2 mx-1"
             onClick={onParse}
           >
             Parse clipboard
