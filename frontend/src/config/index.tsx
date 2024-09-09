@@ -1,17 +1,16 @@
-import { Inter } from "next/font/google";
+"use client";
+import { PrivyClientConfig } from "@privy-io/react-auth";
+import { createConfig } from "@privy-io/wagmi";
+import { http } from "viem";
 import { mainnet, polygon, polygonAmoy, sepolia } from "viem/chains";
-import { createConfig, http } from "wagmi";
-
-export const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID as string;
 if (!projectId) {
   throw new Error("NEXT_PUBLIC_PROJECT_ID is not set.");
 }
 
-export const WagmiConfig = createConfig({
+export const config = createConfig({
   chains: [mainnet, sepolia, polygon, polygonAmoy],
-  multiInjectedProviderDiscovery: false,
   transports: {
     [mainnet.id]: http(),
     [sepolia.id]: http(),
@@ -19,3 +18,14 @@ export const WagmiConfig = createConfig({
     [polygonAmoy.id]: http(),
   },
 });
+
+export const privyConfig: PrivyClientConfig = {
+  embeddedWallets: {
+    createOnLogin: "users-without-wallets",
+  },
+  // loginMethods: ["wallet", "email", "sms"],
+  appearance: {
+    theme: "light",
+    accentColor: "#676FFF",
+  },
+};

@@ -1,0 +1,11 @@
+.vercel
+node_modules
+pnpm-lock.yaml
+
+# env variables
+.env
+.env.local
+
+# build output
+/build
+/dist
