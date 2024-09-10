@@ -13,5 +13,5 @@ export const swaggerConfig = {
       },
     ],
   },
-  apis: ["./src/app.ts"],
+  apis: ["./src/routes/*.ts"],
 };

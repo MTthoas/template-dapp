@@ -1,12 +1,15 @@
-// src/controllers/helloController.ts
-
 import { Request, Response } from "express";
 import { HealthCheckService } from "../services/health-check.service";
 
-const healthCheckService = new HealthCheckService();
-
 export class HealthCheckController {
-  static getStatus(req: Request, res: Response) {
-    res.send(healthCheckService.getStatusResponse());
+  private healthCheckService: HealthCheckService;
+
+  constructor() {
+    this.healthCheckService = new HealthCheckService();
+  }
+
+  public getStatus(req: Request, res: Response): void {
+    const statusResponse = this.healthCheckService.getStatusResponse();
+    res.send(statusResponse);
   }
 }
